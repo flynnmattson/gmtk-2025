@@ -220,7 +220,6 @@ func handle_jumping():
 func handle_movement(delta, input_dir):
 	var direction = input_dir.rotated(-HEAD.rotation.y)
 	direction = Vector3(direction.x, 0, direction.y)
-	print(direction)
 	move_and_slide()
 
 	if in_air_momentum:
