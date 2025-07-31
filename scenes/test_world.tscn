@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://cy3dfv06tqgpo"]
+
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_umbte"]
+[ext_resource type="Texture2D" uid="uid://pe7a4weirj2g" path="res://textures/dark.png" id="2_ynswa"]
+[ext_resource type="Texture2D" uid="uid://cxjxvqmf4boxq" path="res://textures/green.png" id="3_dvny0"]
+[ext_resource type="Texture2D" uid="uid://dsv4jm4vydflb" path="res://textures/orange.png" id="4_xwrkq"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_hx7g7"]
+ground_color = Color(0.160784, 0.815686, 0.905882, 1)
+
+[sub_resource type="Sky" id="Sky_uijnl"]
+sky_material = SubResource("PhysicalSkyMaterial_hx7g7")
+
+[sub_resource type="Environment" id="Environment_lroge"]
+background_mode = 2
+sky = SubResource("Sky_uijnl")
+tonemap_mode = 1
+ssao_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_c7ouh"]
+colors = PackedColorArray(0, 0.476245, 0.0193456, 1, 0.360494, 0.612721, 0.119744, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nr7wf"]
+frequency = 0.0027
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y7qac"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_nr7wf")
+color_ramp = SubResource("Gradient_c7ouh")
+seamless = true
+in_3d_space = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hwo6b"]
+albedo_texture = SubResource("NoiseTexture2D_y7qac")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ye2o5"]
+albedo_texture = ExtResource("2_ynswa")
+metallic = 0.81
+metallic_specular = 0.2
+roughness = 0.5
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.000850145
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dvx80"]
+albedo_texture = ExtResource("3_dvny0")
+metallic = 0.81
+metallic_specular = 0.2
+roughness = 0.5
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.000850145
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_va4dp"]
+albedo_texture = ExtResource("4_xwrkq")
+metallic = 0.81
+metallic_specular = 0.2
+roughness = 0.5
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.000850145
+
+[node name="TestWorldTwo" type="Node3D"]
+
+[node name="Character" parent="." instance=ExtResource("1_umbte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.87959, -0.436605, 0.188936, 0, 0.397148, 0.917755, -0.475732, -0.807248, 0.349328, 0, 0, 0)
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lroge")
+
+[node name="terrain" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 10)
+use_collision = true
+size = Vector3(30, 1, 30)
+material = SubResource("StandardMaterial3D_hwo6b")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -10)
+use_collision = true
+size = Vector3(10, 1, 10)
+material = SubResource("StandardMaterial3D_ye2o5")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.8, -13)
+use_collision = true
+size = Vector3(4, 0.5, 4)
+material = SubResource("StandardMaterial3D_ye2o5")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -9.5, 1.2, -10)
+use_collision = true
+size = Vector3(10, 1, 10)
+material = SubResource("StandardMaterial3D_dvx80")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, -15.5)
+use_collision = true
+size = Vector3(19, 8, 1)
+material = SubResource("StandardMaterial3D_va4dp")
