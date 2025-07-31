@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy3dfv06tqgpo"]
+[gd_scene load_steps=10 format=3 uid="uid://cy3dfv06tqgpo"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_umbte"]
+[ext_resource type="PackedScene" uid="uid://dq67kl20mah3d" path="res://objects/door/door_pivot.tscn" id="2_umbte"]
 [ext_resource type="Texture2D" uid="uid://pe7a4weirj2g" path="res://textures/dark.png" id="2_ynswa"]
 [ext_resource type="Texture2D" uid="uid://dsv4jm4vydflb" path="res://textures/orange.png" id="4_xwrkq"]
 
@@ -45,52 +46,67 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lroge")
 
-[node name="terrain" type="Node3D" parent="."]
+[node name="WorldObjects" type="Node3D" parent="."]
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.376007, -0.5, -7.5176086)
+[node name="DoorPivot" parent="WorldObjects" instance=ExtResource("2_umbte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8071265, 1.3569487, -14.987609)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.376007, -0.5, -17.835495)
 use_collision = true
-size = Vector3(20.752014, 1, 14.964783)
+size = Vector3(20.752014, 1, 35.600555)
 material = SubResource("StandardMaterial3D_ye2o5")
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="terrain"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="WorldObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7105923, 6.705804, -4.0866547)
 use_collision = true
 size = Vector3(22.467793, 1, 24.12619)
 material = SubResource("StandardMaterial3D_ye2o5")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.27458, 2.3834038, -15.44972)
+[node name="CSGBox3D5" type="CSGBox3D" parent="WorldObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.259, 4.546, -15)
 use_collision = true
-size = Vector3(21.504639, 8, 1)
+size = Vector3(21.505, 3.597, 0.5)
 material = SubResource("StandardMaterial3D_va4dp")
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="terrain"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="WorldObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8665302, 1.62, -15)
+use_collision = true
+size = Vector3(9.25494, 4.5, 0.5)
+material = SubResource("StandardMaterial3D_va4dp")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="WorldObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.863176, 1.704, -15)
+use_collision = true
+size = Vector3(9.961649, 4.169, 0.5)
+material = SubResource("StandardMaterial3D_va4dp")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="WorldObjects"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.9936094, 2.3834038, -5.524517)
 use_collision = true
 size = Vector3(20.735596, 8, 1)
 material = SubResource("StandardMaterial3D_va4dp")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="terrain"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="WorldObjects"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.309805, 2.3834038, -4.0919657)
 use_collision = true
 size = Vector3(24.001709, 8, 1)
 material = SubResource("StandardMaterial3D_va4dp")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="terrain"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="WorldObjects"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.695863, 2.3834043, -0.16567801)
 use_collision = true
 size = Vector3(22.480042, 8, 1)
 material = SubResource("StandardMaterial3D_va4dp")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="terrain"]
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldObjects"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10.558826, 6.156587, -5.418941)
 light_color = Color(1, 1, 0.8627451, 1)
 light_energy = 5.0
 spot_range = 20.0
 spot_angle = 90.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="terrain"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="WorldObjects"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.4818726, 6.145629, -5.418941)
 light_color = Color(1, 1, 0.8627451, 1)
 light_energy = 5.0

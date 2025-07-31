@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=4 uid="uid://dq67kl20mah3d"]
+
+[ext_resource type="Script" uid="uid://141h7p2hc6bx" path="res://objects/door/door_interactable.gd" id="1_4na01"]
+[ext_resource type="Texture2D" uid="uid://cxjxvqmf4boxq" path="res://textures/green.png" id="1_50jl1"]
+
+[sub_resource type="Animation" id="Animation_4na01"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_50jl1"]
+resource_name = "Open"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1ljda"]
+resource_name = "Close"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ljda"]
+_data = {
+&"RESET": SubResource("Animation_4na01"),
+&"close": SubResource("Animation_1ljda"),
+&"open": SubResource("Animation_50jl1")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0i0ho"]
+albedo_texture = ExtResource("1_50jl1")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4na01"]
+_surfaces = [{
+"aabb": AABB(-1.05, -1.4, -0.1, 2.1, 2.8, 0.2),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": SubResource("StandardMaterial3D_0i0ho"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("ZmaGvzMzs7/NzMw9ZmaGvzMzs7/NzMy9ZmaGvzMzsz/NzMy9ZmaGPzMzs7/NzMy9ZmaGvzMzs7/NzMy9ZmaGvzMzs7/NzMw9ZmaGvzMzsz/NzMy9ZmaGvzMzs7/NzMy9ZmaGPzMzs7/NzMy9ZmaGvzMzsz/NzMy9ZmaGvzMzsz/NzMw9ZmaGvzMzs7/NzMw9ZmaGvzMzs7/NzMw9ZmaGvzMzsz/NzMw9ZmaGPzMzsz/NzMw9ZmaGPzMzsz/NzMw9ZmaGvzMzsz/NzMw9ZmaGvzMzsz/NzMy9ZmaGvzMzs7/NzMw9ZmaGPzMzs7/NzMw9ZmaGPzMzs7/NzMy9ZmaGPzMzsz/NzMw9ZmaGPzMzs7/NzMw9ZmaGvzMzs7/NzMw9ZmaGPzMzs7/NzMy9ZmaGPzMzs7/NzMw9ZmaGPzMzsz/NzMw9ZmaGPzMzs7/NzMy9ZmaGPzMzsz/NzMy9ZmaGvzMzsz/NzMy9ZmaGvzMzsz/NzMy9ZmaGPzMzsz/NzMy9ZmaGPzMzsz/NzMw9ZmaGPzMzsz/NzMw9ZmaGPzMzsz/NzMy9ZmaGPzMzs7/NzMy9AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1ljda"]
+data = PackedVector3Array(-1.05, -1.4, 0.1, -1.05, -1.4, -0.1, -1.05, 1.4, -0.1, 1.05, -1.4, -0.1, -1.05, -1.4, -0.1, -1.05, -1.4, 0.1, -1.05, 1.4, -0.1, -1.05, -1.4, -0.1, 1.05, -1.4, -0.1, -1.05, 1.4, -0.1, -1.05, 1.4, 0.1, -1.05, -1.4, 0.1, -1.05, -1.4, 0.1, -1.05, 1.4, 0.1, 1.05, 1.4, 0.1, 1.05, 1.4, 0.1, -1.05, 1.4, 0.1, -1.05, 1.4, -0.1, -1.05, -1.4, 0.1, 1.05, -1.4, 0.1, 1.05, -1.4, -0.1, 1.05, 1.4, 0.1, 1.05, -1.4, 0.1, -1.05, -1.4, 0.1, 1.05, -1.4, -0.1, 1.05, -1.4, 0.1, 1.05, 1.4, 0.1, 1.05, -1.4, -0.1, 1.05, 1.4, -0.1, -1.05, 1.4, -0.1, -1.05, 1.4, -0.1, 1.05, 1.4, -0.1, 1.05, 1.4, 0.1, 1.05, 1.4, 0.1, 1.05, 1.4, -0.1, 1.05, -1.4, -0.1)
+
+[node name="DoorPivot" type="Node3D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1ljda")
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("animation_player")]
+collision_layer = 3
+script = ExtResource("1_4na01")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("ArrayMesh_4na01")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_1ljda")

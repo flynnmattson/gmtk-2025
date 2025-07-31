@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=23 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" uid="uid://c4dso434dqveq" path="res://addons/fpc/character.gd" id="1_0t4e8"]
 [ext_resource type="Script" uid="uid://bnd5gg0wivqbd" path="res://addons/fpc/EditorModule.gd" id="3_v3ckk"]
 [ext_resource type="Script" uid="uid://b8ytfjbp47r0q" path="res://addons/fpc/debug.gd" id="3_x1wcc"]
+[ext_resource type="PackedScene" uid="uid://bnahdegnj0fxy" path="res://controller/interactive_controller.tscn" id="4_bx7cj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
@@ -418,6 +419,11 @@ libraries = {
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
+[node name="RayCast3D" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+target_position = Vector3(0, 0, -2)
+collision_mask = 2
+
 [node name="Camera" type="Camera3D" parent="Head"]
 
 [node name="HeadbobAnimation" type="AnimationPlayer" parent="Head"]
@@ -463,3 +469,6 @@ target_position = Vector3(0, 0.5, 0)
 
 [node name="EditorModule" type="Node" parent="."]
 script = ExtResource("3_v3ckk")
+
+[node name="InteractiveController" parent="." node_paths=PackedStringArray("raycast") instance=ExtResource("4_bx7cj")]
+raycast = NodePath("../Head/RayCast3D")
