@@ -1,0 +1,1 @@
+class_name Throwable extends RigidBody3D
