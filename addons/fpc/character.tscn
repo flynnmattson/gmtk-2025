@@ -420,9 +420,11 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 target_position = Vector3(0, 0, -2)
 collision_mask = 2
+
+[node name="HoldLocation" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29340497, -0.21845365, -0.9135098)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 
@@ -470,5 +472,6 @@ target_position = Vector3(0, 0.5, 0)
 [node name="EditorModule" type="Node" parent="."]
 script = ExtResource("3_v3ckk")
 
-[node name="InteractiveController" parent="." node_paths=PackedStringArray("raycast") instance=ExtResource("4_bx7cj")]
+[node name="InteractiveController" parent="." node_paths=PackedStringArray("raycast", "hold_location") instance=ExtResource("4_bx7cj")]
 raycast = NodePath("../Head/RayCast3D")
+hold_location = NodePath("../Head/HoldLocation")
