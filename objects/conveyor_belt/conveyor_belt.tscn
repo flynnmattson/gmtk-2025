@@ -12,6 +12,7 @@ item_list = Array[PackedScene]([ExtResource("2_4wwwl")])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.081813, 0)
 
 [node name="ConveyorBeltSection" parent="." instance=ExtResource("2_i8qo4")]
+constant_linear_velocity = Vector3(5, 0, 0)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
