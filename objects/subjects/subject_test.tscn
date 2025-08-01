@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjeatdaml23ac"]
+
+[ext_resource type="Texture2D" uid="uid://d1h161t0v6hau" path="res://textures/red.png" id="1_ouul1"]
+[ext_resource type="Script" uid="uid://rio2xyyik3c3" path="res://objects/subjects/subject.gd" id="1_sntju"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
+albedo_color = Color(0.909804, 0.596078, 0, 1)
+albedo_texture = ExtResource("1_ouul1")
+clearcoat_enabled = true
+clearcoat_roughness = 0.2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sntju"]
+material = SubResource("StandardMaterial3D_kp17n")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qg4kp"]
+
+[node name="SubjectTest" type="CharacterBody3D"]
+script = ExtResource("1_sntju")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_sntju")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_qg4kp")

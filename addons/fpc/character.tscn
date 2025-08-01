@@ -475,3 +475,4 @@ script = ExtResource("3_v3ckk")
 [node name="InteractiveController" parent="." node_paths=PackedStringArray("raycast", "hold_location") instance=ExtResource("4_bx7cj")]
 raycast = NodePath("../Head/RayCast3D")
 hold_location = NodePath("../Head/HoldLocation")
+throw_power = 20
