@@ -27,6 +27,6 @@ func _process(_delta: float) -> void:
 		active_throwable.global_position = hold_location.global_position
 		active_throwable.let_go()
 		var direction = raycast.global_position.direction_to(raycast.to_global(raycast.target_position))
-		direction.y += randf_range(0.25, 0.5)
+		direction.y += randf_range(0.2, 0.3)
 		active_throwable.apply_central_impulse(direction * throw_power)
 		active_throwable = null
