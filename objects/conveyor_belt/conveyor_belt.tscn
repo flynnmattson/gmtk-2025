@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyr526tgwy3i3"]
+
+[ext_resource type="Script" uid="uid://dyhls6wl5pti0" path="res://objects/conveyor_belt/conveyor_belt.gd" id="1_12ftk"]
+[ext_resource type="PackedScene" uid="uid://cjtbqbaxerxqm" path="res://objects/items/ball.tscn" id="2_4wwwl"]
+[ext_resource type="PackedScene" uid="uid://rs3ap730gcvy" path="res://objects/conveyor_belt/conveyor_belt_section.tscn" id="2_i8qo4"]
+
+[node name="ConveyorBelt" type="Node3D"]
+script = ExtResource("1_12ftk")
+item_list = Array[PackedScene]([ExtResource("2_4wwwl")])
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.081813, 0)
+
+[node name="ConveyorBeltSection" parent="." instance=ExtResource("2_i8qo4")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true

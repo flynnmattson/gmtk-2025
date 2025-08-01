@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="GMTK 2025"
+config/tags=PackedStringArray("jam")
 run/main_scene="uid://cy3dfv06tqgpo"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
-config/tags=PackedStringArray("jam")
 
 [display]
 
@@ -82,3 +82,7 @@ attack={
 [layer_names]
 
 3d_physics/layer_2="Interactable"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"

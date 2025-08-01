@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=4 uid="uid://rs3ap730gcvy"]
+
+[ext_resource type="Texture2D" uid="uid://dsv4jm4vydflb" path="res://textures/orange.png" id="1_q8ynh"]
+[ext_resource type="Shader" uid="uid://badtikp510cin" path="res://objects/conveyor_belt/belt.gdshader" id="2_pyn10"]
+[ext_resource type="Texture2D" uid="uid://pe7a4weirj2g" path="res://textures/dark.png" id="3_pyn10"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tu5cd"]
+albedo_texture = ExtResource("1_q8ynh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tu5cd"]
+render_priority = 0
+shader = ExtResource("2_pyn10")
+shader_parameter/texture_albedo = ExtResource("3_pyn10")
+shader_parameter/scroll_speed = Vector2(0.1, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v7p3t"]
+_surfaces = [{
+"aabb": AABB(-1, -0.1825, -12.882324, 2, 0.365, 25.764648),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": SubResource("ShaderMaterial_tu5cd"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AACAv0jhOr4AHk5BAACAv0jhOr4AHk7BAACAv0jhOj4AHk7BAACAP0jhOr4AHk7BAACAv0jhOr4AHk7BAACAv0jhOr4AHk5BAACAv0jhOj4AHk7BAACAv0jhOr4AHk7BAACAP0jhOr4AHk7BAACAv0jhOj4AHk7BAACAv0jhOj4AHk5BAACAv0jhOr4AHk5BAACAv0jhOr4AHk5BAACAv0jhOj4AHk5BAACAP0jhOj4AHk5BAACAP0jhOj4AHk5BAACAv0jhOj4AHk5BAACAv0jhOj4AHk7BAACAv0jhOr4AHk5BAACAP0jhOr4AHk5BAACAP0jhOr4AHk7BAACAP0jhOj4AHk5BAACAP0jhOr4AHk5BAACAv0jhOr4AHk5BAACAP0jhOr4AHk7BAACAP0jhOr4AHk5BAACAP0jhOj4AHk5BAACAP0jhOr4AHk7BAACAP0jhOj4AHk7BAACAv0jhOj4AHk7BAACAv0jhOj4AHk7BAACAP0jhOj4AHk7BAACAP0jhOj4AHk5BAACAP0jhOj4AHk5BAACAP0jhOj4AHk7BAACAP0jhOr4AHk7BAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fs7o6"]
+data = PackedVector3Array(-1, -0.1825, 12.882324, -1, -0.1825, -12.882324, -1, 0.1825, -12.882324, 1, -0.1825, -12.882324, -1, -0.1825, -12.882324, -1, -0.1825, 12.882324, -1, 0.1825, -12.882324, -1, -0.1825, -12.882324, 1, -0.1825, -12.882324, -1, 0.1825, -12.882324, -1, 0.1825, 12.882324, -1, -0.1825, 12.882324, -1, -0.1825, 12.882324, -1, 0.1825, 12.882324, 1, 0.1825, 12.882324, 1, 0.1825, 12.882324, -1, 0.1825, 12.882324, -1, 0.1825, -12.882324, -1, -0.1825, 12.882324, 1, -0.1825, 12.882324, 1, -0.1825, -12.882324, 1, 0.1825, 12.882324, 1, -0.1825, 12.882324, -1, -0.1825, 12.882324, 1, -0.1825, -12.882324, 1, -0.1825, 12.882324, 1, 0.1825, 12.882324, 1, -0.1825, -12.882324, 1, 0.1825, -12.882324, -1, 0.1825, -12.882324, -1, 0.1825, -12.882324, 1, 0.1825, -12.882324, 1, 0.1825, 12.882324, 1, 0.1825, 12.882324, 1, 0.1825, -12.882324, 1, -0.1825, -12.882324)
+
+[node name="ConveyorBeltSection" type="AnimatableBody3D"]
+constant_linear_velocity = Vector3(0, 0, 5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010986328, -0.3173828, 11.375641)
+visible = false
+size = Vector3(2, 0.365, 25.764648)
+material = SubResource("StandardMaterial3D_tu5cd")
+
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010986328, -0.3173828, 11.375641)
+mesh = SubResource("ArrayMesh_v7p3t")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010986328, -0.3173828, 11.375641)
+shape = SubResource("ConcavePolygonShape3D_fs7o6")

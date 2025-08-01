@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy3dfv06tqgpo"]
+[gd_scene load_steps=12 format=3 uid="uid://cy3dfv06tqgpo"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_umbte"]
+[ext_resource type="PackedScene" uid="uid://bjeatdaml23ac" path="res://objects/subjects/subject_test.tscn" id="2_dvny0"]
 [ext_resource type="PackedScene" uid="uid://dq67kl20mah3d" path="res://objects/door/door_pivot.tscn" id="2_umbte"]
 [ext_resource type="Texture2D" uid="uid://pe7a4weirj2g" path="res://textures/dark.png" id="2_ynswa"]
 [ext_resource type="Texture2D" uid="uid://dsv4jm4vydflb" path="res://textures/orange.png" id="4_xwrkq"]
-[ext_resource type="PackedScene" uid="uid://cjtbqbaxerxqm" path="res://objects/items/ball.tscn" id="5_ynswa"]
+[ext_resource type="PackedScene" uid="uid://cyr526tgwy3i3" path="res://objects/conveyor_belt/conveyor_belt.tscn" id="7_xwrkq"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_hx7g7"]
 ground_color = Color(0.160784, 0.815686, 0.905882, 1)
@@ -37,7 +38,10 @@ uv1_triplanar_sharpness = 0.000850145
 [node name="TestWorldTwo" type="Node3D"]
 
 [node name="Character" parent="." instance=ExtResource("1_umbte")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51992846, -5.831051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2102735, 0.51992846, -5.831051)
+
+[node name="SubjectTest" parent="." instance=ExtResource("2_dvny0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.255868, 0.3367746, -7.6767993)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.87959, -0.436605, 0.188936, 0, 0.397148, 0.917755, -0.475732, -0.807248, 0.349328, 0, 0, 0)
@@ -50,12 +54,12 @@ environment = SubResource("Environment_lroge")
 [node name="WorldObjects" type="Node3D" parent="." groups=["WorldObjects"]]
 
 [node name="DoorPivot" parent="WorldObjects" instance=ExtResource("2_umbte")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8071265, 1.3569487, -14.987609)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55073595, 1.3569487, -14.987609)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="WorldObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.376007, -0.5, -17.835495)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5134363, -0.62124825, -14.548143)
 use_collision = true
-size = Vector3(20.752014, 1, 35.600555)
+size = Vector3(20.752014, 1, 41.870712)
 material = SubResource("StandardMaterial3D_ye2o5")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="WorldObjects"]
@@ -71,15 +75,39 @@ size = Vector3(21.505, 3.597, 0.5)
 material = SubResource("StandardMaterial3D_va4dp")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="WorldObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8665302, 1.62, -15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4990518, 1.62, -15)
 use_collision = true
-size = Vector3(9.25494, 4.5, 0.5)
+size = Vector3(5.989897, 4.5, 0.5)
 material = SubResource("StandardMaterial3D_va4dp")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="WorldObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.851635, 1.704, -15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.851635, 2.820469, -15)
 use_collision = true
-size = Vector3(9.984731, 4.169, 0.5)
+size = Vector3(9.984731, 1.9360626, 0.5)
+material = SubResource("StandardMaterial3D_va4dp")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="WorldObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.29045, 1.7698166, -15)
+use_collision = true
+size = Vector3(7.1071, 4.0373673, 0.5)
+material = SubResource("StandardMaterial3D_va4dp")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="WorldObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5950727, 1.7698166, -15)
+use_collision = true
+size = Vector3(4.004492, 4.0373673, 0.5)
+material = SubResource("StandardMaterial3D_va4dp")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="WorldObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.311142, 1.77, -0.28831446)
+use_collision = true
+size = Vector3(7.0665727, 4.0373673, 0.7446289)
+material = SubResource("StandardMaterial3D_va4dp")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="WorldObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.921, 1.77, -0.27488673)
+use_collision = true
+size = Vector3(11.504355, 4.0373673, 0.71777344)
 material = SubResource("StandardMaterial3D_va4dp")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="WorldObjects"]
@@ -95,9 +123,9 @@ size = Vector3(24.001709, 8, 1)
 material = SubResource("StandardMaterial3D_va4dp")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="WorldObjects"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.695863, 2.3834043, -0.16567801)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.695863, 4.0975156, -0.16567801)
 use_collision = true
-size = Vector3(22.480042, 8, 1)
+size = Vector3(22.480042, 4.5717773, 1)
 material = SubResource("StandardMaterial3D_va4dp")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldObjects"]
@@ -114,5 +142,5 @@ light_energy = 5.0
 spot_range = 20.0
 spot_angle = 90.0
 
-[node name="Ball" parent="WorldObjects" instance=ExtResource("5_ynswa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9424586, 0.49999976, -8.732211)
+[node name="ConveyorBelt" parent="." instance=ExtResource("7_xwrkq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6675916, 0.26491022, -20.231117)
