@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjeatdaml23ac"]
+[gd_scene load_steps=9 format=3 uid="uid://bjeatdaml23ac"]
 
 [ext_resource type="Texture2D" uid="uid://d1h161t0v6hau" path="res://textures/red.png" id="1_ouul1"]
 [ext_resource type="Script" uid="uid://rio2xyyik3c3" path="res://objects/subjects/subject.gd" id="1_sntju"]
 [ext_resource type="PackedScene" uid="uid://dkrve7vut11uv" path="res://controller/ai/ai_controller.tscn" id="2_qg4kp"]
+[ext_resource type="Texture2D" uid="uid://cmofa4u2e67xw" path="res://icon.svg" id="2_xlnpu"]
+[ext_resource type="PackedScene" uid="uid://b8bub2vob4b21" path="res://controller/stupidity_controller.tscn" id="4_jx02t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
@@ -18,9 +20,20 @@ material = SubResource("StandardMaterial3D_kp17n")
 [node name="SubjectTest" type="CharacterBody3D"]
 script = ExtResource("1_sntju")
 
+[node name="TargetRayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, 20)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, 0, 1.4179832, 0.5064991)
+modulate = Color(1, 0.3567242, 0.2955051, 1)
+texture = ExtResource("2_xlnpu")
+
 [node name="AIController" parent="." node_paths=PackedStringArray("actor", "hold_location") instance=ExtResource("2_qg4kp")]
 actor = NodePath("..")
 hold_location = NodePath("../HoldLocation")
+
+[node name="StupidityController" parent="." instance=ExtResource("4_jx02t")]
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

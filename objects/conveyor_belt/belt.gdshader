@@ -1,6 +1,6 @@
 shader_type spatial;
 
-uniform sampler2D texture_albedo; // Your scrolling texture
+uniform sampler2D texture_albedo : repeat_enable, filter_linear; // Your scrolling texture
 uniform vec2 scroll_speed = vec2(0.1, 0.0); // Adjust x and y scrolling speeds
 
 void fragment() {

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8bub2vob4b21"]
+
+[ext_resource type="Script" uid="uid://c3fr6lxv0v0xf" path="res://controller/stupidity_controller.gd" id="1_a46ml"]
+
+[node name="StupidityController" type="Node"]
+script = ExtResource("1_a46ml")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
