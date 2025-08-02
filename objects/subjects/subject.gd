@@ -7,7 +7,7 @@ class_name Subject extends CharacterBody3D
 @export var throw_cooldown: float = 2.0
 @export var gravity_enabled : bool = true
 @export var active_rage_limit: int = 1
-@export var death_rage_limit: int = 10
+@export var death_rage_limit: int = 5
 
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") # Don't set this as a const, see the gravity section in _physics_process
 var current_rage: int = 0
@@ -25,14 +25,15 @@ func _physics_process(delta: float) -> void:
 
 
 func hit() -> void:
-	print("hit")
-	current_rage += 1
-	if current_rage > active_rage_limit:
-		print("rage started")
-		GameEvent.emit_rage_started()
-	if is_dead():
-		print("he dead")
-		GameEvent.emit_subject_silenced()
+	if not is_dead():
+		print("hit")
+		current_rage += 1
+		if current_rage >= active_rage_limit:
+			print("rage started")
+			GameEvent.emit_rage_started()
+		if is_dead():
+			print("he dead")
+			GameEvent.emit_subject_silenced()
 
 
 func is_dead() -> bool:

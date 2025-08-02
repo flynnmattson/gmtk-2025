@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://7rxn3e5q3bq6"]
+
+[ext_resource type="Script" uid="uid://cflvf26ju1otb" path="res://objects/grandma/grandma.gd" id="1_oa7ul"]
+[ext_resource type="Texture2D" uid="uid://cxjxvqmf4boxq" path="res://textures/green.png" id="2_exrfr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dgqad"]
+radius = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1er0h"]
+albedo_texture = ExtResource("2_exrfr")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1er0h"]
+material = SubResource("StandardMaterial3D_1er0h")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2702g"]
+
+[node name="Grandma" type="Node3D"]
+script = ExtResource("1_oa7ul")
+
+[node name="HealArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0108501, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HealArea3D"]
+shape = SubResource("SphereShape3D_dgqad")
+
+[node name="HealTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_1er0h")
+skeleton = NodePath("../..")
+
+[node name="Collision" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2702g")
