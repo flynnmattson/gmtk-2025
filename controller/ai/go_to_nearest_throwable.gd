@@ -19,10 +19,11 @@ func before_run(actor: Node, _blackboard: Blackboard) -> void:
 	var closest_distance: float = 9999999
 
 	for throwable: Throwable in throwables.get_children():
-		var distance: float = actor.global_position.distance_to(throwable.global_position)
-		if distance < closest_distance:
-			nearest_throwable = throwable
-			closest_distance = distance
+		if not throwable.is_thrown and not throwable.is_picked:
+			var distance: float = actor.global_position.distance_to(throwable.global_position)
+			if distance < closest_distance:
+				nearest_throwable = throwable
+				closest_distance = distance
 
 	if not nearest_throwable == null:
 		timer.start(reset_limit)

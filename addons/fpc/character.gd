@@ -142,6 +142,7 @@ var mouseInput : Vector2 = Vector2(0,0)
 #region Main Control Flow
 
 func _ready():
+	GameEvent.brain_dead.connect(trigger_pause)
 	#It is safe to comment this line if your game doesn't start with the mouse captured
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -476,13 +477,15 @@ func update_camera_fov():
 
 func handle_pausing():
 	if Input.is_action_just_pressed(controls.PAUSE):
-		# You may want another node to handle pausing, because this player may get paused too.
-		match Input.mouse_mode:
-			Input.MOUSE_MODE_CAPTURED:
-				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-				#get_tree().paused = false
-			Input.MOUSE_MODE_VISIBLE:
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-				#get_tree().paused = false
+		trigger_pause()
+
+func trigger_pause():
+	match Input.mouse_mode:
+		Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			#get_tree().paused = false
+		Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			#get_tree().paused = false
 
 #endregion

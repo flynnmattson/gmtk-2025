@@ -3,10 +3,18 @@ extends Node
 @export var raycast : RayCast3D
 @export var hold_location: Node3D
 @export var throw_power: int = 10
+@export var interact_container: MarginContainer
+
 
 var active_throwable: Throwable
 
+func _ready() -> void:
+	interact_container.visible = false
+
+
 func _process(_delta: float) -> void:
+	_refresh_indicator()
+
 	if Input.is_action_just_pressed("interact"):
 		if raycast.is_colliding():
 			var collider = raycast.get_collider()
@@ -30,3 +38,11 @@ func _process(_delta: float) -> void:
 		direction.y += randf_range(0.2, 0.3)
 		active_throwable.apply_central_impulse(direction * throw_power)
 		active_throwable = null
+
+
+func _refresh_indicator() -> void:
+	var collider = raycast.get_collider()
+	if collider is Interactable or (collider is Throwable and not collider.is_thrown):
+		interact_container.visible = true
+	else:
+		interact_container.visible = false
