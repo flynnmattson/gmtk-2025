@@ -15,7 +15,6 @@ var current_subject: Subject
 func _ready() -> void:
 	GameEvent.start_game.connect(_on_start_game)
 	GameEvent.brain_dead.connect(_on_brain_dead)
-	GameEvent.battle_over.connect(_on_battle_over)
 	main_menu.visible = true
 
 
@@ -35,7 +34,3 @@ func _on_start_game() -> void:
 func _on_brain_dead() -> void:
 	death_screen.visible = true
 	get_tree().paused = true
-
-
-func _on_battle_over() -> void:
-	

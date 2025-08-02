@@ -12,8 +12,9 @@ func _ready() -> void:
 
 
 func _on_battle() -> void:
-	timer.start()
-	_talk()
+	if timer:
+		timer.start()
+		_talk()
 
 
 func _on_timeout() -> void:
