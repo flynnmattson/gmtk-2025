@@ -1,6 +1,8 @@
 class_name Subject extends CharacterBody3D
 
-@export var base_speed : float = 3.0
+@onready var target_ray_cast_3d: RayCast3D = $TargetRayCast3D
+
+@export var base_speed : float = 4.0
 @export var throw_power: int = 20
 @export var throw_cooldown: float = 2.0
 @export var gravity_enabled : bool = true
@@ -9,6 +11,7 @@ class_name Subject extends CharacterBody3D
 
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") # Don't set this as a const, see the gravity section in _physics_process
 var current_rage: int = 0
+var face_target: Node3D
 
 
 func _physics_process(delta: float) -> void:
@@ -17,7 +20,9 @@ func _physics_process(delta: float) -> void:
 
 	var input_dir = Vector2.ZERO
 
-	_handle_movement(delta, input_dir)
+	_handle_movement(input_dir)
+	_handle_look(delta)
+
 
 func hit() -> void:
 	print("hit")
@@ -34,7 +39,15 @@ func is_dead() -> bool:
 	return current_rage > death_rage_limit
 
 
-func _handle_movement(_delta, input_dir) -> void:
+func _handle_movement(input_dir) -> void:
 	var direction = input_dir
 	direction = Vector3(direction.x, 0, direction.y)
 	move_and_slide()
+
+
+func _handle_look(delta) -> void:
+	if not face_target == null:
+		var pos: Vector2 = Vector2(global_position.x, global_position.z)
+		var target_pos: Vector2 = Vector2(face_target.global_position.x, face_target.global_position.z)
+		var direction = -(pos - target_pos)
+		rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.y), delta * 3)

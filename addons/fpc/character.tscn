@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=28 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" uid="uid://c4dso434dqveq" path="res://addons/fpc/character.gd" id="1_0t4e8"]
 [ext_resource type="Texture2D" uid="uid://bopw2qe1u5oft" path="res://textures/brain.webp" id="3_qaoyu"]
 [ext_resource type="Script" uid="uid://bnd5gg0wivqbd" path="res://addons/fpc/EditorModule.gd" id="3_v3ckk"]
 [ext_resource type="Script" uid="uid://b8ytfjbp47r0q" path="res://addons/fpc/debug.gd" id="3_x1wcc"]
 [ext_resource type="PackedScene" uid="uid://bnahdegnj0fxy" path="res://controller/interactive_controller.tscn" id="4_bx7cj"]
+[ext_resource type="Script" uid="uid://sf43e87oapdo" path="res://controller/brain_controller.gd" id="6_gv6je"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
@@ -382,10 +383,70 @@ MarginContainer/constants/margin_top = 10
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
+[sub_resource type="Animation" id="Animation_gv6je"]
+resource_name = "damage"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../UserInterface/BrainContainer:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.3, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.7853981633974483, 0.7853981633974483, -0.7853981633974483, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UserInterface/BrainContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 0.55478466, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.870805, 0.44815296, 0.45373213, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4fv23"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../UserInterface/BrainContainer:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UserInterface/BrainContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q62an"]
+_data = {
+&"RESET": SubResource("Animation_4fv23"),
+&"damage": SubResource("Animation_gv6je")
+}
+
 [node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH") groups=["Player"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_0t4e8")
-base_speed = 4.0
 default_reticle = "res://addons/fpc/reticles/reticle_1.tscn"
 HEAD = NodePath("Head")
 CAMERA = NodePath("Head/Camera")
@@ -465,18 +526,18 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/DebugPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UserInterface"]
+[node name="BrainContainer" type="MarginContainer" parent="UserInterface"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
+offset_top = -200.0
+offset_right = 200.0
 grow_vertical = 0
 pivot_offset = Vector2(100, 100)
 
-[node name="TextureRect" type="TextureRect" parent="UserInterface/MarginContainer"]
-custom_minimum_size = Vector2(200, 200)
+[node name="BrainTexture" type="TextureRect" parent="UserInterface/BrainContainer"]
 layout_mode = 2
 texture = ExtResource("3_qaoyu")
 expand_mode = 3
@@ -493,3 +554,12 @@ script = ExtResource("3_v3ckk")
 raycast = NodePath("../Head/RayCast3D")
 hold_location = NodePath("../Head/HoldLocation")
 throw_power = 20
+
+[node name="BrainController" type="Node" parent="." node_paths=PackedStringArray("brain_container")]
+script = ExtResource("6_gv6je")
+brain_container = NodePath("../UserInterface/BrainContainer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BrainController"]
+libraries = {
+&"": SubResource("AnimationLibrary_q62an")
+}

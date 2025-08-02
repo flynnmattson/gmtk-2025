@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkrve7vut11uv"]
+[gd_scene load_steps=15 format=3 uid="uid://dkrve7vut11uv"]
 
 [ext_resource type="Script" uid="uid://0ariqcog3ngh" path="res://controller/ai/ai_controller.gd" id="1_1xewg"]
 [ext_resource type="Script" uid="uid://b4nr7oeycnf7w" path="res://addons/beehave/blackboard.gd" id="2_e6xrq"]
@@ -9,9 +9,11 @@
 [ext_resource type="Script" uid="uid://6nseugs2prf8" path="res://controller/ai/is_enraged.gd" id="6_six3s"]
 [ext_resource type="Script" uid="uid://d2h4hssljkq0h" path="res://addons/beehave/nodes/leaves/action.gd" id="7_0h2oc"]
 [ext_resource type="Script" uid="uid://f6p5wcy1emvs" path="res://controller/ai/go_to_nearest_throwable.gd" id="8_uwhh6"]
+[ext_resource type="Script" uid="uid://dl637e67ll7r4" path="res://addons/beehave/nodes/composites/selector_random.gd" id="8_ver1r"]
 [ext_resource type="Script" uid="uid://hs32cw4vw23t" path="res://controller/ai/pickup_throwable.gd" id="9_thfgk"]
 [ext_resource type="Script" uid="uid://dc36wo3coi7v0" path="res://controller/ai/throw.gd" id="10_ibhqm"]
 [ext_resource type="Script" uid="uid://cbyrijo3macv5" path="res://controller/ai/cooldown.gd" id="11_kpxrj"]
+[ext_resource type="Script" uid="uid://bx1b27qd5wex5" path="res://controller/ai/dodge.gd" id="13_cyc2m"]
 
 [node name="AIController" type="Node"]
 script = ExtResource("1_1xewg")
@@ -42,28 +44,33 @@ metadata/_custom_type_script = "uid://3tjnag6634f3"
 script = ExtResource("6_six3s")
 metadata/_custom_type_script = "uid://3tjnag6634f3"
 
-[node name="AttackSelectorComposite" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite"]
-script = ExtResource("4_kprhw")
-metadata/_custom_type_script = "uid://ytvlpeugtqse"
+[node name="Cooldown" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite"]
+script = ExtResource("11_kpxrj")
 
-[node name="SequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/AttackSelectorComposite"]
+[node name="RandomActionSelectorComposite" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite"]
+script = ExtResource("8_ver1r")
+metadata/_custom_type_script = "uid://dl637e67ll7r4"
+
+[node name="ThrowSequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/RandomActionSelectorComposite"]
 script = ExtResource("5_omcr4")
 metadata/_custom_type_script = "uid://b02cx32j7tmbb"
 
-[node name="GoToNearestThrowable" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/AttackSelectorComposite/SequenceComposite"]
+[node name="GoToNearestThrowable" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/RandomActionSelectorComposite/ThrowSequenceComposite"]
 script = ExtResource("8_uwhh6")
+reset_limit = null
 metadata/_custom_type_script = "uid://d2h4hssljkq0h"
 
-[node name="PickupThrowable" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/AttackSelectorComposite/SequenceComposite"]
+[node name="PickupThrowable" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/RandomActionSelectorComposite/ThrowSequenceComposite"]
 script = ExtResource("9_thfgk")
 metadata/_custom_type_script = "uid://d2h4hssljkq0h"
 
-[node name="Throw" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/AttackSelectorComposite/SequenceComposite"]
+[node name="Throw" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/RandomActionSelectorComposite/ThrowSequenceComposite"]
 script = ExtResource("10_ibhqm")
 metadata/_custom_type_script = "uid://d2h4hssljkq0h"
 
-[node name="Cooldown" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/AttackSelectorComposite/SequenceComposite"]
-script = ExtResource("11_kpxrj")
+[node name="Dodge" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/RandomActionSelectorComposite"]
+script = ExtResource("13_cyc2m")
+metadata/_custom_type_script = "uid://d2h4hssljkq0h"
 
 [node name="DoNothing" type="Node" parent="BeehaveTree/SelectorComposite"]
 script = ExtResource("7_0h2oc")

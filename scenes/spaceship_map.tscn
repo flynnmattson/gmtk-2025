@@ -30,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7823713, -17.33909)
 [node name="WorldObjects" type="Node" parent="."]
 
 [node name="ConveyorBelt" parent="WorldObjects" instance=ExtResource("3_5vuow")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.5180364, 0.9690678, -8.897409)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.5180364, 0.7258053, -8.897409)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldObjects"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.35738182, 3.9453454, 23.234543)
