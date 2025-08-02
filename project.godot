@@ -40,6 +40,7 @@ enabled=PackedStringArray("res://addons/beehave/plugin.cfg")
 Ground=""
 Throwables=""
 Player=""
+Subject=""
 
 [input]
 
