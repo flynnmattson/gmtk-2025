@@ -10,15 +10,15 @@ data = PackedVector3Array(-2, 0, -6, -2, 0.099999994, 6, -2, 0, 6, -2, 0, -6, -2
 
 [node name="SpaceshipMap" type="Node"]
 
-[node name="MapStaticBody3D" type="StaticBody3D" parent="."]
+[node name="MapStaticBody3D" type="StaticBody3D" parent="." groups=["Ground"]]
 
 [node name="SpaceShipInt" type="MeshInstance3D" parent="MapStaticBody3D"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.6227083, 0, 1)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 mesh = ExtResource("1_w0xg4")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MapStaticBody3D"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.6227083, 0, 1)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_5vuow")
 
 [node name="Character" parent="." instance=ExtResource("2_n5lej")]
@@ -27,7 +27,7 @@ transform = Transform3D(0.9999102, 0, -0.01340373, 0, 1, 0, 0.01340373, 0, 0.999
 [node name="SubjectTest" parent="." instance=ExtResource("3_3gpvg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7823713, -17.33909)
 
-[node name="WorldObjects" type="Node3D" parent="." groups=["WorldObjects"]]
+[node name="WorldObjects" type="Node" parent="."]
 
 [node name="ConveyorBelt" parent="WorldObjects" instance=ExtResource("3_5vuow")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.5180364, 0.9690678, -8.897409)
@@ -45,3 +45,5 @@ light_color = Color(1, 1, 0.8627451, 1)
 light_energy = 5.0
 spot_range = 20.0
 spot_angle = 90.0
+
+[node name="Throwables" type="Node" parent="WorldObjects" groups=["Throwables"]]

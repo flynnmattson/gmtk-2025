@@ -21,11 +21,11 @@ func _process(_delta: float) -> void:
 				active_throwable.global_position = hold_location.global_position
 
 	if Input.is_action_just_pressed("attack") and active_throwable:
-		var world_objects: Node3D = get_tree().get_first_node_in_group("WorldObjects")
+		var throwables: Node = get_tree().get_first_node_in_group("Throwables")
 		hold_location.remove_child(active_throwable)
-		world_objects.add_child(active_throwable)
+		throwables.add_child(active_throwable)
 		active_throwable.global_position = hold_location.global_position
-		active_throwable.let_go()
+		active_throwable.throw()
 		var direction = raycast.global_position.direction_to(raycast.to_global(raycast.target_position))
 		direction.y += randf_range(0.2, 0.3)
 		active_throwable.apply_central_impulse(direction * throw_power)

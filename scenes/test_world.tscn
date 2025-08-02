@@ -51,7 +51,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lroge")
 
-[node name="WorldObjects" type="Node3D" parent="." groups=["WorldObjects"]]
+[node name="WorldObjects" type="Node3D" parent="."]
 
 [node name="DoorPivot" parent="WorldObjects" instance=ExtResource("2_umbte")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55073595, 1.3569487, -14.987609)
