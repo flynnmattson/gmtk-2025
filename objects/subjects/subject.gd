@@ -1,10 +1,12 @@
 class_name Subject extends CharacterBody3D
 
 @onready var target_ray_cast_3d: RayCast3D = $TargetRayCast3D
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var hold_location: Node3D = %HoldLocation
 
 @export var base_speed : float = 4.0
 @export var throw_power: int = 20
-@export var throw_cooldown: float = 2.0
+@export var throw_cooldown: float = 1.0
 @export var gravity_enabled : bool = true
 @export var active_rage_limit: int = 1
 @export var death_rage_limit: int = 5
@@ -12,6 +14,7 @@ class_name Subject extends CharacterBody3D
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") # Don't set this as a const, see the gravity section in _physics_process
 var current_rage: int = 0
 var face_target: Node3D
+var last_throwable: Throwable
 
 
 func _physics_process(delta: float) -> void:
@@ -24,17 +27,25 @@ func _physics_process(delta: float) -> void:
 	_handle_look(delta)
 
 
-func hit() -> void:
+func hit(throwable: Throwable) -> bool:
+	if throwable == last_throwable:
+		return false
+
+	if is_dead() and animation_player.assigned_animation != "Death":
+		animation_player.play("Death")
+
 	if not is_dead():
 		print("hit")
 		current_rage += 1
-		if current_rage >= active_rage_limit:
-			print("rage started")
-			GameEvent.emit_rage_started()
 		if is_dead():
-			print("he dead")
+			animation_player.play("Death")
 			GameEvent.emit_subject_silenced()
-
+		elif current_rage == active_rage_limit:
+			animation_player.play("Yelling")
+			GameEvent.emit_rage_started()
+		else:
+			animation_player.play_section("IsHit", 0.2)
+	return true
 
 func is_dead() -> bool:
 	return current_rage > death_rage_limit

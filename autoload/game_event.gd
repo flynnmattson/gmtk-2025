@@ -1,6 +1,8 @@
 extends Node
 
+signal pause_game()
 signal start_game()
+signal resume_game()
 signal rage_started()
 signal subject_silenced()
 signal stupidity_spread()
@@ -9,6 +11,14 @@ signal door_action(open: bool)
 signal initiate_battle()
 signal battle_over()
 signal regenerate(amount: int)
+
+
+func emit_pause_game() -> void:
+	pause_game.emit()
+
+
+func emit_resume_game() -> void:
+	resume_game.emit()
 
 
 func emit_start_game() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkrve7vut11uv"]
+[gd_scene load_steps=16 format=3 uid="uid://dkrve7vut11uv"]
 
 [ext_resource type="Script" uid="uid://0ariqcog3ngh" path="res://controller/ai/ai_controller.gd" id="1_1xewg"]
 [ext_resource type="Script" uid="uid://b4nr7oeycnf7w" path="res://addons/beehave/blackboard.gd" id="2_e6xrq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cbyrijo3macv5" path="res://controller/ai/cooldown.gd" id="11_kpxrj"]
 [ext_resource type="Script" uid="uid://bx1b27qd5wex5" path="res://controller/ai/dodge.gd" id="13_cyc2m"]
 [ext_resource type="Script" uid="uid://c6rcf7sxr0m45" path="res://controller/ai/nothing.gd" id="14_cyc2m"]
+[ext_resource type="Script" uid="uid://b1ak7tph67gpc" path="res://controller/ai/dead.gd" id="15_lf3oy"]
 
 [node name="AIController" type="Node"]
 script = ExtResource("1_1xewg")
@@ -75,6 +76,10 @@ metadata/_custom_type_script = "uid://d2h4hssljkq0h"
 script = ExtResource("13_cyc2m")
 metadata/_custom_type_script = "uid://d2h4hssljkq0h"
 
-[node name="DoNothing" type="Node" parent="BeehaveTree/SelectorComposite"]
+[node name="DoNothing" type="Node" parent="BeehaveTree/SelectorComposite/AliveSequenceComposite"]
 script = ExtResource("14_cyc2m")
+metadata/_custom_type_script = "uid://d2h4hssljkq0h"
+
+[node name="Dead" type="Node" parent="BeehaveTree/SelectorComposite"]
+script = ExtResource("15_lf3oy")
 metadata/_custom_type_script = "uid://d2h4hssljkq0h"

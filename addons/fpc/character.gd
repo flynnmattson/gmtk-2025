@@ -143,6 +143,7 @@ var mouseInput : Vector2 = Vector2(0,0)
 
 func _ready():
 	GameEvent.brain_dead.connect(trigger_pause)
+	GameEvent.resume_game.connect(trigger_pause)
 	#It is safe to comment this line if your game doesn't start with the mouse captured
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -475,9 +476,12 @@ func update_camera_fov():
 	else:
 		CAMERA.fov = lerp(CAMERA.fov, 75.0, 0.3)
 
+
 func handle_pausing():
 	if Input.is_action_just_pressed(controls.PAUSE):
+		GameEvent.emit_pause_game()
 		trigger_pause()
+
 
 func trigger_pause():
 	match Input.mouse_mode:

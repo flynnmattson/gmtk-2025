@@ -2,8 +2,13 @@ extends Node
 
 @onready var battle_area: Area3D = $BattleArea
 @onready var throwables: Node = %Throwables
+@onready var subject_spawn: Node3D = $SubjectSpawn
 
 
+@export var subjects: Array[PackedScene] = []
+
+
+var battle_index = 0
 var in_battle: bool = false
 
 
@@ -11,10 +16,7 @@ func _ready() -> void:
 	battle_area.body_entered.connect(_battle_entered)
 	GameEvent.regenerate.connect(_out_of_battle)
 	GameEvent.battle_over.connect(_on_battle_over)
-
-
-func set_subject(subject: Subject) -> void:
-	pass
+	_setup_battle()
 
 
 func _battle_entered(body: Node3D) -> void:
@@ -34,3 +36,14 @@ func _on_battle_over() -> void:
 		throwables.remove_child(throwable)
 	var subject = get_tree().get_first_node_in_group("Subject")
 	remove_child(subject)
+	battle_index = battle_index + 1
+	_setup_battle()
+
+
+func _setup_battle() -> void:
+	if battle_index < subjects.size():
+		var subject = subjects[battle_index].instantiate()
+		add_child(subject)
+		subject.global_position = subject_spawn.global_position
+		# TODO: choose different items to spawn
+	print("you defeated all of them!")

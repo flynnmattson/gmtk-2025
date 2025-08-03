@@ -17,7 +17,7 @@ material = SubResource("StandardMaterial3D_jx02t")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qg4kp"]
 
-[node name="SubjectTest" type="CharacterBody3D"]
+[node name="SubjectTest" type="CharacterBody3D" groups=["Subject"]]
 script = ExtResource("1_sntju")
 
 [node name="TargetRayCast3D" type="RayCast3D" parent="."]

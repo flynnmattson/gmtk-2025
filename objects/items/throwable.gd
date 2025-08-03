@@ -26,8 +26,8 @@ func throw() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body is Subject and is_thrown:
 		var subject = body as Subject
-		subject.hit()
-		is_thrown = false
-	
+		if subject.hit(self):
+			is_thrown = false
+
 	if is_thrown and body.is_in_group("Ground"):
 		is_thrown = false
