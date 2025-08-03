@@ -22,7 +22,8 @@ func _on_timeout() -> void:
 
 
 func _talk() -> void:
-	voice_controller.play_regular()
+	if not voice_controller.audio_stream_player_3d.playing:
+		voice_controller.play_regular()
 	GameEvent.emit_stupidity_spread()
 
 
