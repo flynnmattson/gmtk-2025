@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bkoq3u6njlw75"]
+[gd_scene load_steps=27 format=4 uid="uid://bkoq3u6njlw75"]
 
 [ext_resource type="Script" uid="uid://ctl24j8a22d55" path="res://scenes/map.gd" id="1_sook4"]
 [ext_resource type="PackedScene" uid="uid://dacqrtm3b6w1q" path="res://objects/subjects/snag/snag.tscn" id="2_52llg"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cjtbqbaxerxqm" path="res://objects/items/ball.tscn" id="9_wtlva"]
 [ext_resource type="PackedScene" uid="uid://bbve26tqmu0x2" path="res://objects/items/book/book.tscn" id="10_52llg"]
 [ext_resource type="PackedScene" uid="uid://7jmta44xgvfo" path="res://objects/items/car/car.tscn" id="14_ulrdm"]
+[ext_resource type="PackedScene" uid="uid://da10gdwlemo1c" path="res://objects/brain/brain.tscn" id="15_15fc4"]
 [ext_resource type="Texture2D" uid="uid://ci2oo3mwk07vc" path="res://textures/left.png" id="15_ovj7m"]
 [ext_resource type="AudioStream" uid="uid://d2v2phtlps6up" path="res://assets/audio/music/Enlightened.mp3" id="17_15fc4"]
 [ext_resource type="PackedScene" uid="uid://b2372wknoyupn" path="res://scenes/background_music.tscn" id="17_iyb6k"]
@@ -74,7 +75,7 @@ sky = SubResource("Sky_iyb6k")
 
 [node name="SpaceshipMap" type="Node"]
 script = ExtResource("1_sook4")
-subjects = Array[PackedScene]([ExtResource("3_eyt5f"), ExtResource("2_52llg"), ExtResource("3_wtlva")])
+subjects = Array[PackedScene]([ExtResource("3_eyt5f"), ExtResource("2_52llg"), ExtResource("3_wtlva"), ExtResource("15_15fc4")])
 possessions = Array[PackedScene]([ExtResource("5_oeob6"), ExtResource("6_ulrdm"), ExtResource("14_ulrdm")])
 
 [node name="MapStaticBody3D" type="StaticBody3D" parent="." groups=["Ground"]]
@@ -92,7 +93,7 @@ shape = SubResource("ConcavePolygonShape3D_pejtp")
 transform = Transform3D(0.9999102, 0, -0.01340373, 0, 1, 0, 0.01340373, 0, 0.9999102, 0, 0.5870724, 26.45805)
 
 [node name="SubjectSpawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7823713, -17.33909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7169521, -17.33909)
 
 [node name="PossessionSpawn" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.452315, 2.9581978, -17.19233)

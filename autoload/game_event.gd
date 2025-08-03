@@ -3,6 +3,7 @@ extends Node
 signal pause_game()
 signal start_game()
 signal resume_game()
+signal credits()
 signal rage_started()
 signal subject_silenced()
 signal stupidity_spread()
@@ -13,6 +14,10 @@ signal battle_over()
 signal regenerate(amount: int)
 signal possession_hit()
 signal controls
+
+
+func emit_credits() -> void:
+	credits.emit()
 
 
 func emit_pause_game() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbnm00j0mwami"]
+[gd_scene load_steps=8 format=3 uid="uid://dbnm00j0mwami"]
 
 [ext_resource type="Script" uid="uid://bxws8r1vknb7m" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bkoq3u6njlw75" path="res://scenes/spaceship_map.tscn" id="2_0wfyh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bxk0ni1afp56y" path="res://scenes/ui/death_screen.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b8h26ucebfguw" path="res://scenes/ui/pause_screen.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://btjvj88ji8ibb" path="res://scenes/ui/controls_menu.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bog6bvperhd25" path="res://scenes/ui/credits.tscn" id="7_o6xl0"]
 
 [node name="Main" type="Node"]
 process_mode = 3
@@ -25,4 +26,7 @@ visible = false
 visible = false
 
 [node name="ControlsMenu" parent="." instance=ExtResource("6_tefeu")]
+visible = false
+
+[node name="Credits" parent="." instance=ExtResource("7_o6xl0")]
 visible = false

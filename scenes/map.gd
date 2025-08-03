@@ -49,6 +49,7 @@ func _setup_battle() -> void:
 		add_child(subject)
 		subject.global_position = subject_spawn.global_position
 
-		var possession = possessions[battle_index].instantiate()
-		throwables.add_child(possession)
-		possession.global_position = possession_spawn.global_position
+		if battle_index < possessions.size():
+			var possession = possessions[battle_index].instantiate()
+			throwables.add_child(possession)
+			possession.global_position = possession_spawn.global_position
