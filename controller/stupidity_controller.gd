@@ -1,8 +1,8 @@
 extends Node
 
-@export var quips: Array[AudioStream]
-
 @onready var timer: Timer = $Timer
+
+@export var voice_controller: VoiceController
 
 
 func _ready() -> void:
@@ -22,7 +22,7 @@ func _on_timeout() -> void:
 
 
 func _talk() -> void:
-	print("something stupid...")
+	voice_controller.play_regular()
 	GameEvent.emit_stupidity_spread()
 
 

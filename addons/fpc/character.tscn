@@ -494,6 +494,10 @@ controls = {
 &"SPRINT": "sprint"
 }
 
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4541656, 0)
+current = true
+
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_jw1de")
@@ -574,6 +578,7 @@ expand_mode = 3
 
 [node name="InteractContainer" type="MarginContainer" parent="UserInterface"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -591,6 +596,28 @@ theme_override_constants/margin_bottom = 100
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Press [E] or [Right Click] to Interact"
+horizontal_alignment = 1
+
+[node name="NotifyContainer" type="MarginContainer" parent="UserInterface"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 200
+
+[node name="Label" type="Label" parent="UserInterface/NotifyContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Good job! Go back to Grandma to rejuvenate your brain cells!"
 horizontal_alignment = 1
 
 [node name="CrouchCeilingDetection" type="ShapeCast3D" parent="."]

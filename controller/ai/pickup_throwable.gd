@@ -4,6 +4,8 @@ extends ActionLeaf
 
 func before_run(actor: Node, blackboard: Blackboard) -> void:
 	actor.velocity = Vector3.ZERO
+	var animation_player = blackboard.get_value("animation_player")
+	animation_player.play("Idle")
 
 
 func tick(actor: Node, blackboard: Blackboard) -> int:
@@ -16,4 +18,5 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	hold_location.add_child(throwable)
 	throwable.hold()
 	throwable.global_position = hold_location.global_position
+	actor.last_throwable = throwable
 	return SUCCESS

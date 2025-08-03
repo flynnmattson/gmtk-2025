@@ -16,6 +16,8 @@ func before_run(actor: Node, blackboard: Blackboard) -> void:
 
 
 func tick(actor: Node, blackboard: Blackboard) -> int:
+	if actor.is_dead():
+		return FAILURE
 	if done:
 		return SUCCESS
 	return RUNNING

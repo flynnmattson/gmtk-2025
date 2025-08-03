@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dccbe8l6txb06"]
+
+[ext_resource type="Script" uid="uid://h73m47fg7hv6" path="res://controller/voice_controller.gd" id="1_0m7hs"]
+
+[node name="VoiceController" type="Node3D"]
+script = ExtResource("1_0m7hs")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+bus = &"Subject Voice"

@@ -7,13 +7,13 @@
 [ext_resource type="Script" uid="uid://b02cx32j7tmbb" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_omcr4"]
 [ext_resource type="Script" uid="uid://xw0ne3blmevg" path="res://controller/ai/is_alive.gd" id="6_cbgmd"]
 [ext_resource type="Script" uid="uid://6nseugs2prf8" path="res://controller/ai/is_enraged.gd" id="6_six3s"]
-[ext_resource type="Script" uid="uid://d2h4hssljkq0h" path="res://addons/beehave/nodes/leaves/action.gd" id="7_0h2oc"]
 [ext_resource type="Script" uid="uid://f6p5wcy1emvs" path="res://controller/ai/go_to_nearest_throwable.gd" id="8_uwhh6"]
 [ext_resource type="Script" uid="uid://dl637e67ll7r4" path="res://addons/beehave/nodes/composites/selector_random.gd" id="8_ver1r"]
 [ext_resource type="Script" uid="uid://hs32cw4vw23t" path="res://controller/ai/pickup_throwable.gd" id="9_thfgk"]
 [ext_resource type="Script" uid="uid://dc36wo3coi7v0" path="res://controller/ai/throw.gd" id="10_ibhqm"]
 [ext_resource type="Script" uid="uid://cbyrijo3macv5" path="res://controller/ai/cooldown.gd" id="11_kpxrj"]
 [ext_resource type="Script" uid="uid://bx1b27qd5wex5" path="res://controller/ai/dodge.gd" id="13_cyc2m"]
+[ext_resource type="Script" uid="uid://c6rcf7sxr0m45" path="res://controller/ai/nothing.gd" id="14_cyc2m"]
 
 [node name="AIController" type="Node"]
 script = ExtResource("1_1xewg")
@@ -32,46 +32,49 @@ metadata/_custom_type_script = "uid://b0rck2lfcarkj"
 script = ExtResource("4_kprhw")
 metadata/_custom_type_script = "uid://ytvlpeugtqse"
 
-[node name="EnragedSequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite"]
+[node name="AliveSequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite"]
 script = ExtResource("5_omcr4")
 metadata/_custom_type_script = "uid://b02cx32j7tmbb"
 
-[node name="isAlive" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite"]
+[node name="isAlive" type="Node" parent="BeehaveTree/SelectorComposite/AliveSequenceComposite"]
 script = ExtResource("6_cbgmd")
 metadata/_custom_type_script = "uid://3tjnag6634f3"
 
-[node name="IsEnraged" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite"]
-script = ExtResource("6_six3s")
-metadata/_custom_type_script = "uid://3tjnag6634f3"
-
-[node name="Cooldown" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite"]
-script = ExtResource("11_kpxrj")
-
-[node name="RandomActionSelectorComposite" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite"]
-script = ExtResource("8_ver1r")
-metadata/_custom_type_script = "uid://dl637e67ll7r4"
-
-[node name="ThrowSequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/RandomActionSelectorComposite"]
+[node name="EnragedSequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite/AliveSequenceComposite"]
 script = ExtResource("5_omcr4")
 metadata/_custom_type_script = "uid://b02cx32j7tmbb"
 
-[node name="GoToNearestThrowable" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/RandomActionSelectorComposite/ThrowSequenceComposite"]
+[node name="IsEnraged" type="Node" parent="BeehaveTree/SelectorComposite/AliveSequenceComposite/EnragedSequenceComposite"]
+script = ExtResource("6_six3s")
+metadata/_custom_type_script = "uid://3tjnag6634f3"
+
+[node name="Cooldown" type="Node" parent="BeehaveTree/SelectorComposite/AliveSequenceComposite/EnragedSequenceComposite"]
+script = ExtResource("11_kpxrj")
+
+[node name="RandomActionSelectorComposite" type="Node" parent="BeehaveTree/SelectorComposite/AliveSequenceComposite/EnragedSequenceComposite"]
+script = ExtResource("8_ver1r")
+metadata/_custom_type_script = "uid://dl637e67ll7r4"
+
+[node name="ThrowSequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite/AliveSequenceComposite/EnragedSequenceComposite/RandomActionSelectorComposite"]
+script = ExtResource("5_omcr4")
+metadata/_custom_type_script = "uid://b02cx32j7tmbb"
+
+[node name="GoToNearestThrowable" type="Node" parent="BeehaveTree/SelectorComposite/AliveSequenceComposite/EnragedSequenceComposite/RandomActionSelectorComposite/ThrowSequenceComposite"]
 script = ExtResource("8_uwhh6")
-reset_limit = null
 metadata/_custom_type_script = "uid://d2h4hssljkq0h"
 
-[node name="PickupThrowable" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/RandomActionSelectorComposite/ThrowSequenceComposite"]
+[node name="PickupThrowable" type="Node" parent="BeehaveTree/SelectorComposite/AliveSequenceComposite/EnragedSequenceComposite/RandomActionSelectorComposite/ThrowSequenceComposite"]
 script = ExtResource("9_thfgk")
 metadata/_custom_type_script = "uid://d2h4hssljkq0h"
 
-[node name="Throw" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/RandomActionSelectorComposite/ThrowSequenceComposite"]
+[node name="Throw" type="Node" parent="BeehaveTree/SelectorComposite/AliveSequenceComposite/EnragedSequenceComposite/RandomActionSelectorComposite/ThrowSequenceComposite"]
 script = ExtResource("10_ibhqm")
 metadata/_custom_type_script = "uid://d2h4hssljkq0h"
 
-[node name="Dodge" type="Node" parent="BeehaveTree/SelectorComposite/EnragedSequenceComposite/RandomActionSelectorComposite"]
+[node name="Dodge" type="Node" parent="BeehaveTree/SelectorComposite/AliveSequenceComposite/EnragedSequenceComposite/RandomActionSelectorComposite"]
 script = ExtResource("13_cyc2m")
 metadata/_custom_type_script = "uid://d2h4hssljkq0h"
 
 [node name="DoNothing" type="Node" parent="BeehaveTree/SelectorComposite"]
-script = ExtResource("7_0h2oc")
+script = ExtResource("14_cyc2m")
 metadata/_custom_type_script = "uid://d2h4hssljkq0h"

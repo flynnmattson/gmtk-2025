@@ -5,6 +5,7 @@
 
 extends CharacterBody3D
 
+@onready var notify_container: MarginContainer = %NotifyContainer
 
 #region Character Export Group
 
@@ -143,6 +144,9 @@ var mouseInput : Vector2 = Vector2(0,0)
 
 func _ready():
 	GameEvent.brain_dead.connect(trigger_pause)
+	GameEvent.resume_game.connect(trigger_pause)
+	GameEvent.subject_silenced.connect(_on_silence)
+	GameEvent.battle_over.connect(_on_battle_over)
 	#It is safe to comment this line if your game doesn't start with the mouse captured
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -156,6 +160,14 @@ func _ready():
 	initialize_animations()
 	check_controls()
 	enter_normal_state()
+
+
+func _on_silence() -> void:
+	notify_container.visible = true
+
+
+func _on_battle_over() -> void:
+	notify_container.visible = false
 
 
 func _process(_delta):
@@ -475,9 +487,12 @@ func update_camera_fov():
 	else:
 		CAMERA.fov = lerp(CAMERA.fov, 75.0, 0.3)
 
+
 func handle_pausing():
 	if Input.is_action_just_pressed(controls.PAUSE):
+		GameEvent.emit_pause_game()
 		trigger_pause()
+
 
 func trigger_pause():
 	match Input.mouse_mode:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://dq67kl20mah3d"]
 
 [ext_resource type="Script" uid="uid://141h7p2hc6bx" path="res://objects/door/door_interactable.gd" id="1_4na01"]
-[ext_resource type="Texture2D" uid="uid://cxjxvqmf4boxq" path="res://textures/green.png" id="1_50jl1"]
+[ext_resource type="Texture2D" uid="uid://b0vm3tq5i1gpu" path="res://textures/DoorTexture.png" id="2_4na01"]
 
 [sub_resource type="Animation" id="Animation_4na01"]
 length = 0.001
@@ -94,7 +94,7 @@ _data = {
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0i0ho"]
-albedo_texture = ExtResource("1_50jl1")
+albedo_texture = ExtResource("2_4na01")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4na01"]
 _surfaces = [{
