@@ -7,6 +7,7 @@ class_name VoiceController extends Node3D
 @export var enrage: Array[AudioStreamMP3]
 @export var death: Array[AudioStreamMP3]
 @export var hit: Array[AudioStreamMP3]
+@export var possession: Array[AudioStreamMP3]
 
 
 func play_regular() -> void:
@@ -32,6 +33,13 @@ func play_hit() -> void:
 	if hit.is_empty():
 		return
 	_play_stream(hit[randi_range(0, hit.size() - 1)])
+
+
+func play_possession() -> void:
+	if possession.is_empty():
+		play_enrage()
+		return
+	_play_stream(possession[randi_range(0, possession.size() - 1)])
 
 
 func _play_stream(stream: AudioStreamMP3) -> void:

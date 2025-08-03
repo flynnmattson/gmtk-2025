@@ -29,6 +29,6 @@ func _spawn() -> void:
 	if item_list.size() > 0:
 		var index = randi_range(0, item_list.size() - 1)
 		var item = item_list[index].instantiate() as Throwable
-		var throwables: Node = get_tree().get_first_node_in_group("Throwables")
+		var throwables: Node = get_tree().get_first_node_in_group("ThrowableParent")
 		throwables.add_child(item)
 		item.global_position = spawn_point.global_position

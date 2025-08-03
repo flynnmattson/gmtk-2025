@@ -2,7 +2,7 @@ extends Node
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@export var brain_cells: int = 20
+@export var brain_cells: int = 30
 @export var brain_container: MarginContainer
 
 

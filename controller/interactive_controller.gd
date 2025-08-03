@@ -29,7 +29,7 @@ func _process(_delta: float) -> void:
 				active_throwable.global_position = hold_location.global_position
 
 	if Input.is_action_just_pressed("attack") and active_throwable:
-		var throwables: Node = get_tree().get_first_node_in_group("Throwables")
+		var throwables: Node = get_tree().get_first_node_in_group("ThrowableParent")
 		hold_location.remove_child(active_throwable)
 		throwables.add_child(active_throwable)
 		active_throwable.global_position = hold_location.global_position

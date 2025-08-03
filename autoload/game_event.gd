@@ -11,10 +11,15 @@ signal door_action(open: bool)
 signal initiate_battle()
 signal battle_over()
 signal regenerate(amount: int)
+signal possession_hit()
 
 
 func emit_pause_game() -> void:
 	pause_game.emit()
+
+
+func emit_possession_hit() -> void:
+	possession_hit.emit()
 
 
 func emit_resume_game() -> void:

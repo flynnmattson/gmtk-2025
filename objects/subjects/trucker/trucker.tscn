@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=4 uid="uid://b3sn4h4n747wj"]
+[gd_scene load_steps=118 format=4 uid="uid://b3sn4h4n747wj"]
 
 [ext_resource type="Script" uid="uid://rio2xyyik3c3" path="res://objects/subjects/subject.gd" id="1_jy7is"]
 [ext_resource type="PackedScene" uid="uid://dkrve7vut11uv" path="res://controller/ai/ai_controller.tscn" id="2_7n18y"]
@@ -78,7 +78,26 @@
 [ext_resource type="AudioStream" uid="uid://vk2mfc5q1g6v" path="res://assets/audio/trucker/AttackState/VoiceOvers_Truck75.mp3" id="53_eku4u"]
 [ext_resource type="AudioStream" uid="uid://do8acl72esob4" path="res://assets/audio/trucker/AttackState/VoiceOvers_Truck76.mp3" id="54_oxyry"]
 [ext_resource type="AudioStream" uid="uid://dwnlk4nc5b4w" path="res://assets/audio/trucker/AttackState/VoiceOvers_Truck77.mp3" id="55_eij6j"]
+[ext_resource type="AudioStream" uid="uid://bs6q2rvltrute" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck41.mp3" id="78_f85mt"]
 [ext_resource type="PackedScene" uid="uid://ckv66jmxm3wws" path="res://objects/mouth/mouth.tscn" id="78_x4wbi"]
+[ext_resource type="AudioStream" uid="uid://dr8rdynrguwuh" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck42.mp3" id="79_bliaf"]
+[ext_resource type="AudioStream" uid="uid://cqjlsjcewfdko" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck43.mp3" id="80_dgb7a"]
+[ext_resource type="AudioStream" uid="uid://h5pk4ny1mky7" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck44.mp3" id="81_22udm"]
+[ext_resource type="AudioStream" uid="uid://ccf0laq0td8ws" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck45.mp3" id="82_rjemp"]
+[ext_resource type="AudioStream" uid="uid://cconm65wx0jbv" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck46.mp3" id="83_4xac8"]
+[ext_resource type="AudioStream" uid="uid://dppvijw4xeu3r" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck47.mp3" id="84_wv4hg"]
+[ext_resource type="AudioStream" uid="uid://cwo8i53kwym4r" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck48.mp3" id="85_rwvvb"]
+[ext_resource type="AudioStream" uid="uid://nhxcsfn2063w" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck49.mp3" id="86_r7kr7"]
+[ext_resource type="AudioStream" uid="uid://d2ksfg5odjb45" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck50.mp3" id="87_2k1kk"]
+[ext_resource type="AudioStream" uid="uid://hifci4hvrjpx" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck51.mp3" id="88_4c6r3"]
+[ext_resource type="AudioStream" uid="uid://ck4651td5esvq" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck52.mp3" id="89_vuwi4"]
+[ext_resource type="AudioStream" uid="uid://csgxr4ykap8l2" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck53.mp3" id="90_xjk25"]
+[ext_resource type="AudioStream" uid="uid://bfvrc2ysaqfnq" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck54.mp3" id="91_o4psl"]
+[ext_resource type="AudioStream" uid="uid://dym215inr122h" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck55.mp3" id="92_rwruk"]
+[ext_resource type="AudioStream" uid="uid://deoxhngiw51hf" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck56.mp3" id="93_kfwcq"]
+[ext_resource type="AudioStream" uid="uid://d2oqxlrvuji1x" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck57.mp3" id="94_vvwlu"]
+[ext_resource type="AudioStream" uid="uid://csdxhekjm7wun" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck58.mp3" id="95_em6k4"]
+[ext_resource type="AudioStream" uid="uid://cbxlgw8l4gfqv" path="res://assets/audio/trucker/ShitState/VoiceOvers_Truck59.mp3" id="96_4rxrl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qg4kp"]
 height = 2.180664
@@ -4706,6 +4725,7 @@ regular = Array[AudioStreamMP3]([ExtResource("5_eo6t8"), ExtResource("6_ufvlr"),
 enrage = Array[AudioStreamMP3]([ExtResource("39_n1hvn"), ExtResource("40_x4wbi"), ExtResource("41_ujr61"), ExtResource("42_ga3f8"), ExtResource("43_y58bc"), ExtResource("44_16ypr"), ExtResource("45_hvw1n"), ExtResource("46_sq8bp"), ExtResource("47_wc87y"), ExtResource("48_b2knf"), ExtResource("49_ni2ri"), ExtResource("50_h8a3e"), ExtResource("51_m41lf"), ExtResource("52_bf1is"), ExtResource("53_eku4u"), ExtResource("54_oxyry"), ExtResource("55_eij6j")])
 death = Array[AudioStreamMP3]([ExtResource("5_vxde2"), ExtResource("6_lo4y4"), ExtResource("7_thqma"), ExtResource("8_1j4ar"), ExtResource("9_d1qae"), ExtResource("10_xehlk")])
 hit = Array[AudioStreamMP3]([ExtResource("5_k5cgu"), ExtResource("6_j67vp"), ExtResource("7_ucqkb"), ExtResource("8_0mm28"), ExtResource("9_at5k0"), ExtResource("10_m4wv4"), ExtResource("11_vxde2"), ExtResource("12_lo4y4"), ExtResource("13_thqma"), ExtResource("14_1j4ar"), ExtResource("15_d1qae"), ExtResource("16_xehlk"), ExtResource("17_6sff0"), ExtResource("18_uk3dx"), ExtResource("19_vgbp2"), ExtResource("20_fhdcj")])
+possession = Array[AudioStreamMP3]([ExtResource("78_f85mt"), ExtResource("79_bliaf"), ExtResource("80_dgb7a"), ExtResource("81_22udm"), ExtResource("82_rjemp"), ExtResource("83_4xac8"), ExtResource("84_wv4hg"), ExtResource("85_rwvvb"), ExtResource("86_r7kr7"), ExtResource("87_2k1kk"), ExtResource("88_4c6r3"), ExtResource("89_vuwi4"), ExtResource("90_xjk25"), ExtResource("91_o4psl"), ExtResource("92_rwruk"), ExtResource("93_kfwcq"), ExtResource("94_vvwlu"), ExtResource("95_em6k4"), ExtResource("96_4rxrl")])
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.090332, 0)

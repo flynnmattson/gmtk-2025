@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://chd1txqfqdco0"]
+
+[ext_resource type="PackedScene" uid="uid://cltdaxe2a2wvw" path="res://objects/items/sign/sign1.tscn" id="1_hodb4"]
+[ext_resource type="PackedScene" uid="uid://dbiagvyow7dd1" path="res://objects/items/sign/sign2.tscn" id="2_bdvvj"]
+[ext_resource type="PackedScene" uid="uid://b12lb82kgtr4" path="res://objects/items/sign/sign3.tscn" id="3_xi2hb"]
+[ext_resource type="PackedScene" uid="uid://bprww20lha8hm" path="res://objects/items/sign/sign4.tscn" id="4_vi082"]
+
+[node name="SnagPossessions" type="Node3D"]
+
+[node name="Sign2" parent="." instance=ExtResource("1_hodb4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.97040707, 0, 0)
+
+[node name="Sign4" parent="." instance=ExtResource("2_bdvvj")]
+
+[node name="Sign5" parent="." instance=ExtResource("3_xi2hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0156319, 0, 0)
+
+[node name="Sign6" parent="." instance=ExtResource("4_vi082")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9689513, -1.1920929e-07, 0.009355366)

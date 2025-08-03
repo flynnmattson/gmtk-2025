@@ -44,7 +44,7 @@ shadow_mesh = SubResource("ArrayMesh_pra12")
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqod8"]
 size = Vector3(1.1908127, 0.2404792, 0.5995288)
 
-[node name="Book" type="RigidBody3D"]
+[node name="Book" type="RigidBody3D" groups=["Throwables"]]
 collision_layer = 3
 contact_monitor = true
 max_contacts_reported = 1

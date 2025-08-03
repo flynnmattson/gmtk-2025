@@ -9,13 +9,17 @@ class_name Subject extends CharacterBody3D
 @export var throw_power: int = 20
 @export var throw_cooldown: float = 1.0
 @export var gravity_enabled : bool = true
-@export var active_rage_limit: int = 1
-@export var death_rage_limit: int = 5
+@export var active_rage_limit: int = 5
+@export var death_rage_limit: int = 10
 
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") # Don't set this as a const, see the gravity section in _physics_process
 var current_rage: int = 0
 var face_target: Node3D
 var last_throwable: Throwable
+
+
+func _ready() -> void:
+	GameEvent.possession_hit.connect(_on_possession_hit)
 
 
 func _physics_process(delta: float) -> void:
@@ -43,17 +47,31 @@ func hit(throwable: Throwable) -> bool:
 			animation_player.play("Death")
 			GameEvent.emit_subject_silenced()
 		elif current_rage == active_rage_limit:
-			voice_controller.play_enrage()
-			if animation_player.has_animation("Yelling"):
-				animation_player.play("Yelling")
-			GameEvent.emit_rage_started()
+			enrage()
 		else:
 			voice_controller.play_hit()
 			animation_player.play_section("IsHit", 0.2)
 	return true
 
+
 func is_dead() -> bool:
 	return current_rage > death_rage_limit
+
+
+func _on_possession_hit() -> void:
+	if current_rage < active_rage_limit:
+		current_rage += 1
+	if current_rage == active_rage_limit:
+		enrage()
+	else:
+		voice_controller.play_possession()
+
+
+func enrage() -> void:
+	voice_controller.play_enrage()
+	if animation_player.has_animation("Yelling"):
+		animation_player.play("Yelling")
+	GameEvent.emit_rage_started()
 
 
 func _handle_movement(input_dir) -> void:

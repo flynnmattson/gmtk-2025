@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://col22qxaq38nx"]
+[gd_scene load_steps=80 format=4 uid="uid://col22qxaq38nx"]
 
 [ext_resource type="Script" uid="uid://rio2xyyik3c3" path="res://objects/subjects/subject.gd" id="1_p8lwt"]
 [ext_resource type="PackedScene" uid="uid://dkrve7vut11uv" path="res://controller/ai/ai_controller.tscn" id="3_6j1ue"]
@@ -42,7 +42,27 @@
 [ext_resource type="AudioStream" uid="uid://b2nfh45nj7ek1" path="res://assets/audio/nerd/OnHit/VoiceOvers_Nerd56.mp3" id="39_5rs1w"]
 [ext_resource type="AudioStream" uid="uid://b1d60ixg6de56" path="res://assets/audio/nerd/OnHit/VoiceOvers_Nerd57.mp3" id="40_am245"]
 [ext_resource type="AudioStream" uid="uid://b1qaincfb40ec" path="res://assets/audio/nerd/OnHit/VoiceOvers_Nerd58.mp3" id="41_ex38s"]
+[ext_resource type="AudioStream" uid="uid://0fsixw03n576" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd21.mp3" id="42_ex38s"]
 [ext_resource type="PackedScene" uid="uid://ckv66jmxm3wws" path="res://objects/mouth/mouth.tscn" id="42_mt7n0"]
+[ext_resource type="AudioStream" uid="uid://dlh61sbn367p5" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd32.mp3" id="43_venap"]
+[ext_resource type="AudioStream" uid="uid://dbuhvndgl3apu" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd33.mp3" id="44_dn0r5"]
+[ext_resource type="AudioStream" uid="uid://b2an7cj4w77je" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd34.mp3" id="45_fts8s"]
+[ext_resource type="AudioStream" uid="uid://yiad1b58y0w4" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd35.mp3" id="46_inm18"]
+[ext_resource type="AudioStream" uid="uid://c81sy6xr8kx2o" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd36.mp3" id="47_gtycv"]
+[ext_resource type="AudioStream" uid="uid://clkpd3el0xwcd" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd37.mp3" id="48_ejcs7"]
+[ext_resource type="AudioStream" uid="uid://8jmiym0makoj" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd38.mp3" id="49_trsv4"]
+[ext_resource type="AudioStream" uid="uid://ifxgpkg6xl71" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd39.mp3" id="50_vskw5"]
+[ext_resource type="AudioStream" uid="uid://djkuxlvc2dbwj" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd40.mp3" id="51_ggsdp"]
+[ext_resource type="AudioStream" uid="uid://w6bwq1fbm022" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd41.mp3" id="52_x0kfq"]
+[ext_resource type="AudioStream" uid="uid://d0arxsipr540g" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd42.mp3" id="53_ob08v"]
+[ext_resource type="AudioStream" uid="uid://bc22bcnswnm8n" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd43.mp3" id="54_7yhlh"]
+[ext_resource type="AudioStream" uid="uid://dtpnrtsco0v3f" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd44.mp3" id="55_wywds"]
+[ext_resource type="AudioStream" uid="uid://6qpnn8dcbc02" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd45.mp3" id="56_674x2"]
+[ext_resource type="AudioStream" uid="uid://djoo66cuk688q" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd46.mp3" id="57_5gvwu"]
+[ext_resource type="AudioStream" uid="uid://blv8heg1qyih0" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd47.mp3" id="58_0t4jq"]
+[ext_resource type="AudioStream" uid="uid://b78wlokpmhs5c" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd49.mp3" id="59_kw4q7"]
+[ext_resource type="AudioStream" uid="uid://dbk4jug3ab01b" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd50.mp3" id="60_nl48l"]
+[ext_resource type="AudioStream" uid="uid://c8excddu2psm7" path="res://assets/audio/nerd/ShitState/VoiceOvers_Nerd51.mp3" id="61_vwjao"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qg4kp"]
 
@@ -2766,6 +2786,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8319112, 0)
 regular = Array[AudioStreamMP3]([ExtResource("5_55fkt"), ExtResource("6_8jf5h"), ExtResource("7_1uawa"), ExtResource("8_i4yma"), ExtResource("9_iu2en"), ExtResource("10_mkdh5"), ExtResource("11_ofxdm"), ExtResource("12_ya5kf"), ExtResource("13_bpdxq"), ExtResource("14_mwfjf"), ExtResource("15_ogwtk"), ExtResource("16_v3d8b"), ExtResource("17_lnco3"), ExtResource("18_ixxf0")])
 death = Array[AudioStreamMP3]([ExtResource("19_i4yma")])
 hit = Array[AudioStreamMP3]([ExtResource("20_vnc81"), ExtResource("21_mt7n0"), ExtResource("22_rheix"), ExtResource("23_a0s27"), ExtResource("24_k8nsr"), ExtResource("25_taxvq"), ExtResource("26_pquu4"), ExtResource("27_n4dci"), ExtResource("28_ewebc"), ExtResource("29_3p45y"), ExtResource("30_skjeq"), ExtResource("31_5oh6w"), ExtResource("32_ehhwm"), ExtResource("33_u7vci"), ExtResource("34_5e3vb"), ExtResource("35_1ybhe"), ExtResource("36_mdfa1"), ExtResource("37_wpq0s"), ExtResource("38_imvxx"), ExtResource("39_5rs1w"), ExtResource("40_am245"), ExtResource("41_ex38s")])
+possession = Array[AudioStreamMP3]([ExtResource("42_ex38s"), ExtResource("43_venap"), ExtResource("44_dn0r5"), ExtResource("45_fts8s"), ExtResource("46_inm18"), ExtResource("47_gtycv"), ExtResource("48_ejcs7"), ExtResource("49_trsv4"), ExtResource("50_vskw5"), ExtResource("51_ggsdp"), ExtResource("52_x0kfq"), ExtResource("53_ob08v"), ExtResource("54_7yhlh"), ExtResource("55_wywds"), ExtResource("56_674x2"), ExtResource("57_5gvwu"), ExtResource("58_0t4jq"), ExtResource("59_kw4q7"), ExtResource("60_nl48l"), ExtResource("61_vwjao")])
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

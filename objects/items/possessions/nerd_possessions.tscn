@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://csdm5ax77ilkq"]
+
+[ext_resource type="PackedScene" uid="uid://cald0hot85m3x" path="res://objects/items/card/card.tscn" id="1_hbb3y"]
+[ext_resource type="PackedScene" uid="uid://bw211j3iu4pj" path="res://objects/items/pedestal/pedestal.tscn" id="1_uhtdr"]
+[ext_resource type="PackedScene" uid="uid://b7j5q5r10g8wj" path="res://objects/items/magazine/magazine.tscn" id="3_gyyo7"]
+
+[node name="NerdPossessions" type="Node3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Pedestal" parent="." instance=ExtResource("1_uhtdr")]
+
+[node name="Card" parent="." instance=ExtResource("1_hbb3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1378338, 0)
+
+[node name="Pedestal2" parent="." instance=ExtResource("1_uhtdr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4975173)
+
+[node name="Card2" parent="." instance=ExtResource("1_hbb3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.118378, 1.4975173)
+
+[node name="Pedestal3" parent="." instance=ExtResource("1_uhtdr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6229727)
+
+[node name="Magazine" parent="." instance=ExtResource("3_gyyo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0966284, -1.6229727)

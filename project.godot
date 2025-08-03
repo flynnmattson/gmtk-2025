@@ -45,6 +45,8 @@ Ground=""
 Throwables=""
 Player=""
 Subject=""
+Possession=""
+ThrowableParent=""
 
 [input]
 

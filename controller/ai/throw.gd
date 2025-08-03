@@ -26,7 +26,7 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 
 	if thrown:
 		var hold_location = blackboard.get_value("hold_location") as Node3D
-		var throwables: Node = get_tree().get_first_node_in_group("Throwables")
+		var throwables: Node = get_tree().get_first_node_in_group("ThrowableParent")
 		hold_location.remove_child(throwable)
 		throwables.add_child(throwable)
 		throwable.global_position = hold_location.global_position
