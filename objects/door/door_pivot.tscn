@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://dq67kl20mah3d"]
+[gd_scene load_steps=11 format=4 uid="uid://dq67kl20mah3d"]
 
 [ext_resource type="Script" uid="uid://141h7p2hc6bx" path="res://objects/door/door_interactable.gd" id="1_4na01"]
 [ext_resource type="Texture2D" uid="uid://b0vm3tq5i1gpu" path="res://textures/DoorTexture.png" id="2_4na01"]
+[ext_resource type="AudioStream" uid="uid://bnvafwl50qao8" path="res://assets/audio/door/DoorOpen.mp3" id="3_1ljda"]
 
 [sub_resource type="Animation" id="Animation_4na01"]
 length = 0.001
@@ -119,10 +120,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_1ljda")
 }
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("animation_player")]
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("animation_player", "audio_stream_player")]
 collision_layer = 3
 script = ExtResource("1_4na01")
 animation_player = NodePath("../AnimationPlayer")
+audio_stream_player = NodePath("../AudioStreamPlayer3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
@@ -133,11 +135,12 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_1ljda")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." node_paths=PackedStringArray("animation_player")]
+[node name="StaticBody3D2" type="StaticBody3D" parent="." node_paths=PackedStringArray("animation_player", "audio_stream_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.101325, 0, 0)
 collision_layer = 3
 script = ExtResource("1_4na01")
 animation_player = NodePath("../AnimationPlayer")
+audio_stream_player = NodePath("../AudioStreamPlayer3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
@@ -147,3 +150,8 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_1ljda")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_1ljda")
+volume_db = -25.0
+max_distance = 15.0

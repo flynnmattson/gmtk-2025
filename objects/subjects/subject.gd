@@ -40,7 +40,6 @@ func hit(throwable: Throwable) -> bool:
 		animation_player.play("Death")
 
 	if not is_dead():
-		print("hit")
 		current_rage += 1
 		if is_dead():
 			voice_controller.play_death()

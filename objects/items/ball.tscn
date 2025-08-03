@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://cjtbqbaxerxqm"]
 
 [ext_resource type="Script" uid="uid://codgvnj87d0w8" path="res://objects/items/throwable.gd" id="1_ibud8"]
-[ext_resource type="Texture2D" uid="uid://cl4kewig3pk7s" path="res://textures/purple.png" id="2_ibud8"]
+[ext_resource type="Texture2D" uid="uid://dsl7jm1foqgbv" path="res://textures/earthmap1k.jpg" id="2_ibud8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atj3l"]
 albedo_texture = ExtResource("2_ibud8")

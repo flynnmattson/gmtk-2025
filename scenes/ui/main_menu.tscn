@@ -1,45 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://clqtgq51fi2xn"]
+[gd_scene load_steps=4 format=3 uid="uid://clqtgq51fi2xn"]
 
 [ext_resource type="Script" uid="uid://bg30vu8s7iswl" path="res://scenes/ui/main_menu.gd" id="1_sl1te"]
+[ext_resource type="Texture2D" uid="uid://csvdnxkd7kqx5" path="res://textures/0077.png" id="2_fe2o3"]
+[ext_resource type="AudioStream" uid="uid://com170giolwei" path="res://assets/audio/music/TitleMusic.mp3" id="3_1g8jr"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_sl1te")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -33.0
-offset_right = 23.0
-offset_bottom = 33.0
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_fe2o3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.25
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -58.5
+offset_right = 37.0
+offset_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 12
+size_flags_horizontal = 0
+theme_override_constants/separation = 15
 alignment = 1
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Title"
-horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Start"
 
 [node name="Controls" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Controls"
 
 [node name="Quit" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1g8jr")
+volume_db = -15.0
