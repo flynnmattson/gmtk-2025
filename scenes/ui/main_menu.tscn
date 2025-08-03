@@ -34,6 +34,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Start"
 
+[node name="Controls" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Controls"
+
 [node name="Quit" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2

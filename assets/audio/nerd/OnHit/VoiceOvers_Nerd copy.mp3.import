@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bs0cy0jeh8fs6"
+path="res://.godot/imported/VoiceOvers_Nerd copy.mp3-29ff621ff0417760bf940de05f87219f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/nerd/OnHit/VoiceOvers_Nerd copy.mp3"
+dest_files=["res://.godot/imported/VoiceOvers_Nerd copy.mp3-29ff621ff0417760bf940de05f87219f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -35,6 +35,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Resume"
 
+[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Controls"
+
 [node name="Restart" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
