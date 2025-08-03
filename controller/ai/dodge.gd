@@ -14,8 +14,9 @@ func _ready() -> void:
 
 
 func before_run(actor: Node, blackboard: Blackboard) -> void:
-	var animation_player = blackboard.get_value("animation_player")
-	animation_player.play("Dodge", -1, 2.0)
+	var animation_player = blackboard.get_value("animation_player") as AnimationPlayer
+	if animation_player.has_animation("Dodge"):
+		animation_player.play("Dodge", -1, 2.0)
 	player = get_tree().get_first_node_in_group("Player")
 	var hold_location = blackboard.get_value("hold_location") as Node3D
 	direction = hold_location.global_position.direction_to(player.global_position).rotated(Vector3.RIGHT, deg_to_rad(90))

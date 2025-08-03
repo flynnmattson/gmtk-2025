@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckv66jmxm3wws"]
+
+[ext_resource type="Texture2D" uid="uid://bb37t52vij7bo" path="res://textures/mouth.png" id="1_prctj"]
+[ext_resource type="Script" uid="uid://ccijt4t8u46jw" path="res://objects/mouth/mouth.gd" id="2_k4uuy"]
+
+[node name="Mouth" type="Sprite3D"]
+transform = Transform3D(0.195, 0, 0, 0, 0.195, 0, 0, 0, 0.195, 0, 0, 0)
+texture = ExtResource("1_prctj")
+script = ExtResource("2_k4uuy")
