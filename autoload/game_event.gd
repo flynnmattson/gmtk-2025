@@ -12,6 +12,7 @@ signal initiate_battle()
 signal battle_over()
 signal regenerate(amount: int)
 signal possession_hit()
+signal controls
 
 
 func emit_pause_game() -> void:
@@ -28,6 +29,10 @@ func emit_resume_game() -> void:
 
 func emit_start_game() -> void:
 	start_game.emit()
+
+
+func emit_controls() -> void:
+	controls.emit()
 
 
 func emit_rage_started() -> void:
