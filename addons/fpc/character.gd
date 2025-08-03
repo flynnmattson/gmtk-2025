@@ -145,6 +145,7 @@ var mouseInput : Vector2 = Vector2(0,0)
 func _ready():
 	GameEvent.brain_dead.connect(trigger_pause)
 	GameEvent.resume_game.connect(trigger_pause)
+	GameEvent.credits.connect(trigger_pause)
 	GameEvent.subject_silenced.connect(_on_silence)
 	GameEvent.battle_over.connect(_on_battle_over)
 	#It is safe to comment this line if your game doesn't start with the mouse captured

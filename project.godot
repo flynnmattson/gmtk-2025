@@ -14,7 +14,8 @@ config/name="GMTK 2025"
 config/tags=PackedStringArray("jam")
 run/main_scene="uid://dbnm00j0mwami"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://n4bt24b8fvh1"
+config/windows_native_icon="res://textures/tempImagedpowEe.ico"
 
 [audio]
 
@@ -109,3 +110,8 @@ attack={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -38,6 +38,9 @@ func _on_body_entered(body: Node) -> void:
 			var subject = body as Subject
 			if subject.hit(self):
 				is_thrown = false
+		
+		if body is Brain:
+			body.roll_credits()
 
 		if body.is_in_group("Ground"):
 			is_thrown = false
